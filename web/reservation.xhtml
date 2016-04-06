@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Online Railway Reservation</title>
@@ -17,11 +18,12 @@
 	</div>
 	<div id="menu">
 		<ul>
-			<li class="active"><a href="#" accesskey="1" title="">Home</a></li>
-			<li><a href="#" accesskey="2" title="">LogIn</a></li>
-			<li><a href="#" accesskey="3" title="">Reservation</a></li>
-			<li><a href="#" accesskey="4" title="">About Us</a></li>
-			<li><a href="#" accesskey="5" title="">Contact Us</a></li>
+			<li class="active"><a href="index.xhtml" accesskey="1" title="">Home</a></li>
+			
+			
+			<li><a href="AboutUs.xhtml" accesskey="4" title="">About Us</a></li>
+			<li><a href="ContactUs.xhtml" accesskey="5" title="">Contact Us</a></li>
+                        <li><a href="#" accesskey="3" title="">Log Out</a></li>
 		</ul>
 	</div>
 </div>
@@ -42,19 +44,20 @@
                         <h:inputText value="#{reservation.lastname}"/>
                         
                         <h:outputText value="Phone Number:"/>
-                        <h:inputText value="#{reservation.pNo}"/>
+                        <h:inputText value="#{reservation.phoneno}"/>
                         
                         <h:outputText value="Train No:"/>
                         <h:inputText value="#{reservation.train_no}"/>
                         
-                        <h:outputText value="From:"/>
-                        <h:inputText value="#{reservation.from}"/>
+                        <h:outputText value="Source:"/>
+                        <h:inputText value="#{reservation.source}"/>
                         
-                        <h:outputText value="To:"/>
-                        <h:inputText value="#{reservation.to}"/>
+                        <h:outputText value="Destination:"/>
+                        <h:inputText value="#{reservation.destination}"/>
                         
                         <h:outputText value="Date:"/>
                         <h:inputText value="#{reservation.date}"/>
+                        
                         
                         <h:outputText value="Time:"/>
                         <h:inputText value="#{reservation.time}"/>
@@ -68,7 +71,7 @@
                         
                         
                         <h:outputText value=""/>
-                        <h:commandButton value="Submit" action="#{reservation.doLogin()}"/>
+                        <h:commandButton value="Submit" action="#{reservation.reserv()}"/>
                         
                     </h:panelGrid>
                 </h:form>

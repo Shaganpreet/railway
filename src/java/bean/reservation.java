@@ -5,20 +5,59 @@
  */
 package bean;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
+
 /**
  *
  * @author g6-2227tu
  */
+@ManagedBean
+@ApplicationScoped
+
 public class reservation {
     String firstname;
     String lastname;
-    String pNo;
+    String phoneno;
     String train_no;
-    String from;
-    String to;
-    String date;
-    String time;
+    String source;
+    String destination;
+     Date date;
+    Timestamp time;
     String fare;
+    
+    public void reserv(){
+
+        Connection conn;
+        try {
+            conn = utils.getConnection();
+        
+
+            // Build a Query
+            String sql = "INSERT into reservation (firstname, lastname, phoneno, trainno, source, destination, date,time,fare) values(?,?,?,?,?,?,?,?,?)";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, firstname);
+            pstmt.setString(2, lastname);
+            pstmt.setString(3, phoneno);
+            pstmt.setString(4, train_no);
+            pstmt.setString(5, source);
+            pstmt.setString(6, destination);
+            pstmt.setDate(7, (java.sql.Date) date);
+            pstmt.setTimestamp(8, time);
+            pstmt.setString(9, fare);
+            pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(reservation.class.getName()).log(Level.SEVERE, null, ex);
+        
+        }
+    }
 
     public String getFirstname() {
         return firstname;
@@ -36,12 +75,12 @@ public class reservation {
         this.lastname = lastname;
     }
 
-    public String getpNo() {
-        return pNo;
+    public String getPhoneno() {
+        return phoneno;
     }
 
-    public void setpNo(String pNo) {
-        this.pNo = pNo;
+    public void setPhoneno(String phoneno) {
+        this.phoneno = phoneno;
     }
 
     public String getTrain_no() {
@@ -52,35 +91,35 @@ public class reservation {
         this.train_no = train_no;
     }
 
-    public String getFrom() {
-        return from;
+    public String getSource() {
+        return source;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setSource(String source) {
+        this.source = source;
     }
 
-    public String getTo() {
-        return to;
+    public String getDestination() {
+        return destination;
     }
 
-    public void setTo(String to) {
-        this.to = to;
+    public void setDestination(String destination) {
+        this.destination = destination;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public String getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 
@@ -91,7 +130,8 @@ public class reservation {
     public void setFare(String fare) {
         this.fare = fare;
     }
+
     
     
-    
+
 }

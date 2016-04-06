@@ -5,18 +5,52 @@
  */
 package bean;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
+
 /**
  *
  * @author g6-2227tu
  */
+@ManagedBean
+@ApplicationScoped
 public class registration {
     String firstname;
     String lastname;
     String email;
     String password;
-    String cPassword;
+    String cpassword;
     String address;
-    String pNo;
+    String phoneno;
+    
+    public void save(){
+
+        Connection conn;
+        try {
+            conn = utils.getConnection();
+        
+
+            // Build a Query
+            String sql = "INSERT into registration (firstname, lastname, email, password, cpassword, address, phoneno) values(?,?,?,?,?,?,?)";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, firstname);
+            pstmt.setString(2, lastname);
+            pstmt.setString(3, email);
+            pstmt.setString(4, password);
+            pstmt.setString(5, cpassword);
+            pstmt.setString(6, address);
+            pstmt.setString(7, phoneno);
+            pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(registration.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
 
     public String getFirstname() {
         return firstname;
@@ -50,12 +84,12 @@ public class registration {
         this.password = password;
     }
 
-    public String getcPassword() {
-        return cPassword;
+    public String getCpassword() {
+        return cpassword;
     }
 
-    public void setcPassword(String cPassword) {
-        this.cPassword = cPassword;
+    public void setCpassword(String cpassword) {
+        this.cpassword = cpassword;
     }
 
     public String getAddress() {
@@ -66,13 +100,15 @@ public class registration {
         this.address = address;
     }
 
-    public String getpNo() {
-        return pNo;
+    public String getPhoneno() {
+        return phoneno;
     }
 
-    public void setpNo(String pNo) {
-        this.pNo = pNo;
+    public void setPhoneno(String phoneno) {
+        this.phoneno = phoneno;
     }
+
+    
     
     
     

@@ -17,11 +17,11 @@
 	</div>
 	<div id="menu">
 		<ul>
-			<li class="active"><a href="#" accesskey="1" title="">Home</a></li>
-			<li><a href="#" accesskey="2" title="">LogIn</a></li>
-			<li><a href="#" accesskey="3" title="">Reservation</a></li>
-			<li><a href="#" accesskey="4" title="">About Us</a></li>
-			<li><a href="#" accesskey="5" title="">Contact Us</a></li>
+			<li class="active"><a href="index.xhtml" accesskey="1" title="">Home</a></li>
+			<li><a href="login.xhtml" accesskey="2" title="">LogIn</a></li>
+			<li><a href="reservation.xhtml" accesskey="3" title="">Reservation</a></li>
+			<li><a href="AboutUs.xhtml" accesskey="4" title="">About Us</a></li>
+			<li><a href="ContactUs.xhtml" accesskey="5" title="">Contact Us</a></li>
 		</ul>
 	</div>
 </div>
@@ -48,7 +48,7 @@
                         <h:inputText value="#{registration.password}"/>
                         
                         <h:outputText value="Confirm Password:"/>
-                        <h:inputText value="#{registration.cPassword}"/>
+                        <h:inputText value="#{registration.cpassword}"/>
                         
                         <h:outputText value="Address:"/>
                         <h:inputText value="#{registration.address}"/>
@@ -56,10 +56,10 @@
                         
                         
                         <h:outputText value="Phone Number:"/>
-                        <h:inputText value="#{registration.pNo}"/>
+                        <h:inputText value="#{registration.phoneno}"/>
                         
                         <h:outputText value=""/>
-                        <h:commandButton value="Register" action="#{registration.doLogin()}"/>
+                        <h:commandButton value="Register" action="#{registration.save()}"/>
                         
                     </h:panelGrid>
                 </h:form>
