@@ -17,11 +17,13 @@
 	</div>
 	<div id="menu">
 		<ul>
-			<li ><a href="index.xhtml" accesskey="1" title="">Home</a></li>
-			<li class="active"><a href="#" accesskey="2" title="">LogIn</a></li>
+			<li><a href="index.xhtml" accesskey="1" title="">Home</a></li>
+			<li><a href="#" accesskey="2" title="">LogIn</a></li>
 			
 			<li><a href="AboutUs.xhtml" accesskey="4" title="">About Us</a></li>
 			<li><a href="ContactUs.xhtml" accesskey="5" title="">Contact Us</a></li>
+                        <li><a href="ContactUs.xhtml" accesskey="5" title=""></a></li>
+                        
 		</ul>
 	</div>
 </div>
@@ -43,11 +45,11 @@
     <h:form id="login">
                     <h:panelGrid id="pnl" columns="2">
                         <h:outputText value="User Name:"/>
-                        <h:inputText value="#{login.username}" size="30"/>
+                        <h:inputText value="#{admin.username}" size="30"/>
                         <h:outputText value="Password:"/>
-                        <h:inputSecret value="#{login.password}" size="30"></h:inputSecret>
+                        <h:inputSecret value="#{admin.password}" size="30"></h:inputSecret>
                         <h:outputText value=""/>
-                        <h:commandButton id="y" value="Login" action="#{login.doLogin()}"/>
+                        <h:commandButton value="Login" action="#{admin.doadmin()}"/>
                         
                         
                         <h:message for=""></h:message>

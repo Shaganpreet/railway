@@ -11,7 +11,7 @@
 <link href="default.css" rel="stylesheet" type="text/css" media="screen" />
     </h:head>
     <h:body>
-        <div id="header">
+       <div id="header">
 	<div id="logo">
 		<h1><a href="#">RAILWAY RESERVATION </a></h1>
 		
@@ -21,7 +21,7 @@
 			<li ><a href="index.xhtml" accesskey="1" title="">Home</a></li>
 			<li><a href="login.xhtml" accesskey="2" title="">LogIn</a></li>
 			
-			<li><a href="About.Xhtml" accesskey="4" title="">About Us</a></li>
+			<li><a href="AboutUs.xhtml" accesskey="4" title="">About Us</a></li>
 			<li><a href="ContactUs.xhtml" accesskey="5" title="">Contact Us</a></li>
 		</ul>
 	</div>
@@ -32,20 +32,31 @@
 		<p><a href="#"><img src="images/train.jpg" alt="" width="830" height="300" /></a></p>
 	</div>
 </div>
-
-<!-- start page -->
-<div id="page">
-	<!-- start content -->
-	<div id="content">
-		<div class="post">
-			<h1 class="title">Routes and Fare</h1>
-			
-			<div class="entry">
-                            <p><strong>Online Reservation System</strong>  Canadian Railway Club
-
-                            
-
-<h:dataTable border="3" id="bb"
+<div style="clear: both; height: 30px">&nbsp;</div>
+<div>
+    <h:form id="registration">
+                    <h:panelGrid id="pnl" columns="2">
+                        <h:outputText value="Train Name:"/>
+                        <h:inputText value="#{infoController.railway.trainName}" size="30"/>
+                        
+                        <h:outputText value="Route:"/>
+                        <h:inputText value="#{infoController.railway.route}" size="30"/>
+                        
+                        <h:outputText value="Fare:"/>
+                        <h:inputText value="#{infoController.railway.fare}" size="30"/>
+                        
+                         <h:outputText value="Time:"/>
+                         <h:inputText value="#{infoController.railway.time}" size="30"/>
+                        
+                        
+                        
+                        <h:outputText value=""/>
+                        <h:commandButton value="Save" action="#{infoController.save()}"/>
+                        
+                    </h:panelGrid>
+                </h:form>
+    
+    <h:dataTable  border="3" id="bb"
                                 styleClass="Table"
                                 headerClass="Header"
                                 rowClasses="Row"
@@ -74,37 +85,14 @@
 
                             </h:dataTable>  
     
-          
-                            
-                            
-                            </p>
-			</div>
-			
-		</div>
-		
-                
-	</div>
-	<!-- end content -->
-	<!-- start sidebar -->
-	<div id="sidebar">
-		<ul>
-			<li>
-				<h2>Categories</h2>
-				<ul>
-					<li><a href="registration.xhtml">Registration</a></li>
-                                        <li><a href="routeFare.xhtml">Train Routes and Fare</a></li>
-					<li><a href="available.xhtml"> Current Availability</a></li>
-                                        <li><a href="reservation.xhtml"> Reservation</a></li>
-					
-					
-					
-				</ul>
-			</li>
-			
-		</ul>
-	</div>
-	<!-- end sidebar -->
+    
 </div>
+
+
+
+
+
+
 <div style="clear: both; height: 30px">&nbsp;</div>
 <!-- end page -->
 <div id="footer">
@@ -113,10 +101,3 @@
     </h:body>
 </html>
 
-                           
-
-
-
-
-
-                          

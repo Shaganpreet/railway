@@ -7,11 +7,14 @@ package bean;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -23,35 +26,78 @@ public class registration {
     String firstname;
     String lastname;
     String email;
+    String username;
     String password;
     String cpassword;
     String address;
     String phoneno;
     
-    public void save(){
+    public String save(){
 
         Connection conn;
         try {
-            conn = utils.getConnection();
+           
         
-
+          //  if(checkName(username)){
+              conn = utils.getConnection();   
+                
             // Build a Query
-            String sql = "INSERT into registration (firstname, lastname, email, password, cpassword, address, phoneno) values(?,?,?,?,?,?,?)";
+            String sql = "INSERT into registration (firstname, lastname, email,username, password, cpassword, address, phoneno) values(?,?,?,?,?,?,?,?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, firstname);
             pstmt.setString(2, lastname);
             pstmt.setString(3, email);
-            pstmt.setString(4, password);
-            pstmt.setString(5, cpassword);
-            pstmt.setString(6, address);
-            pstmt.setString(7, phoneno);
-            pstmt.executeUpdate();
+            pstmt.setString(4, username);
+            pstmt.setString(5, password);
+            pstmt.setString(6, cpassword);
+            pstmt.setString(7, address);
+            pstmt.setString(8, phoneno);
+           int i = pstmt.executeUpdate();
+            //conn.close();
+            if(i>0){
+             return "login";
+            }
+            else{
+                return "hello";
+            }
+            
+//            else{
+//                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("The username already exist choose some other name"));
+//                return null;
+//            }
         } catch (SQLException ex) {
             Logger.getLogger(registration.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+       
+        return null;
     }
-
+    
+//    public Boolean checkName(String user){
+//        Connection con;
+//        
+//        try {
+//            con = utils.getConnection();
+//            String sql= "select username from registration where username = ?";
+//            PreparedStatement pst=con.prepareStatement(sql);
+//            pst.setString(1, user);
+//            
+//            ResultSet rs = pst.executeQuery();
+//            while(rs.next()){
+//                String username1 = rs.getString("username");
+//                System.out.println(username1);
+//                if(user.equals(username1)){
+//                    return false;
+//                }
+//                else
+//                    return true;
+//            }
+//           // con.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(registration.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return false;
+//    }
+    
     public String getFirstname() {
         return firstname;
     }
@@ -75,6 +121,16 @@ public class registration {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
+    
 
     public String getPassword() {
         return password;

@@ -17,7 +17,7 @@
 	</div>
 	<div id="menu">
 		<ul>
-			<li class="active"><a href="index.xhtml" accesskey="1" title="">Home</a></li>
+			<li class="active"><a href="#" accesskey="1" title="">Home</a></li>
 			<li><a href="login.xhtml" accesskey="2" title="">LogIn</a></li>
 			
 			<li><a href="AboutUs.xhtml" accesskey="4" title="">About Us</a></li>
@@ -37,39 +37,9 @@
 	<!-- start content -->
 	<div id="content">
 		<div class="post">
-			<h1 class="title">Availability of Seats </h1>
+			<h1 class="title">Welcome #{login.username}</h1>
 			
-			<div class="entry">
-                            <p><strong>Online Reservation System</strong>  Canadian Railway Club
-
-                            
-
-<TABLE BORDER="3"    WIDTH="540px"   >
-   <TR>
-      <TH COLSPAN="3" id="t"><br>Available seats</br>
-      </TH>
-   </TR>
-   <TR>
-      <TH>Train Name</TH>
-      <TH>Total seats</TH>
-      <TH>Available seats</TH>
-      
-   </TR>
-   <TR ALIGN="CENTER">
-      <TD>Express</TD>
-      <TD>50</TD>
-      <TD>#{reservation.count_tickets()}</TD>
-   </TR>
-    
-    
-    
-</TABLE>
-                            
-                            
-                            
-                            
-                            </p>
-			</div>
+			
 			
 		</div>
 		
@@ -85,13 +55,12 @@
 					<li><a href="registration.xhtml">Registration</a></li>
                                         <li><a href="routeFare.xhtml">Train Routes and Fare</a></li>
 					<li><a href="available.xhtml"> Current Availability</a></li>
-                                        <li><a href="reservation.xhtml"> Reservation</a></li>
+					<li><a href="reservation.xhtml"> Reservation</a></li>
 					
-				
 					
 				</ul>
 			</li>
-			
+		
 		</ul>
 	</div>
 	<!-- end sidebar -->
@@ -104,10 +73,3 @@
     </h:body>
 </html>
 
-                           
-
-
-
-
-
-                          

@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Online Railway Reservation</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="default.css" rel="stylesheet" type="text/css" media="screen" />
+    </h:head>
+    <h:body>
+        <div id="header">
+	<div id="logo">
+		<h1><a href="#">RAILWAY RESERVATION </a></h1>
+		
+	</div>
+	<div id="menu">
+		<ul>
+			<li class="active"><a href="index.xhtml" accesskey="1" title="">Home</a></li>
+			<li><a href="login.xhtml" accesskey="2" title="">LogIn</a></li>
+			
+			<li><a href="AboutUs.xhtml" accesskey="4" title="">About Us</a></li>
+			<li><a href="ContactUs.xhtml" accesskey="5" title="">Contact Us</a></li>
+		</ul>
+	</div>
+</div>
+<!-- end header -->
+<div id="gallery">
+	<div id="top-photo">
+		<p><a href="#"><img src="images/train.jpg" alt="" width="830" height="300" /></a></p>
+	</div>
+</div>
+
+<!-- start page -->
+<div id="page">
+	<!-- start content -->
+	<div id="content">
+		<div class="post">
+			<h1 class="title">Booked Tickets </h1>
+			
+			<div class="entry">
+                            <p><strong>Online Reservation System</strong>  Canadian Railway Club
+                            </p>
+                           <h:dataTable border="3"
+                                styleClass="Table"
+                                headerClass="Header"
+                                rowClasses="Row"
+                                columnClasses="column1,column2,column3,column4,column5,column6,column7,column8"
+                                value="#{reservationController.reservation}" var="reserve">
+
+                                <h:column headerClass="th">
+                                    <f:facet name="header">FirstName</f:facet>
+                                       
+                                          #{reserve.firstname}  
+                                       
+                                </h:column>
+                                <h:column headerClass="th">
+                                   <f:facet name="header">LastName</f:facet>
+                             #{reserve.lastname}   
+                             
+                                </h:column>
+                                <h:column headerClass="th">
+                                   <f:facet name="header">PhoneNo</f:facet>
+                                   #{reserve.phoneno} 
+                                </h:column>        
+                                <h:column headerClass="th">
+                                   <f:facet name="header">TrainNo</f:facet>
+                                   #{reserve.trainNo}  
+                                </h:column>        
+                                <h:column headerClass="th">
+                                   <f:facet name="header">SourceDestination</f:facet>
+                                   #{reserve.source_destination} 
+                                </h:column>        
+                                <h:column headerClass="th">
+                                   <f:facet name="header">date</f:facet>
+                                   #{reserve.date}   
+                                </h:column>
+                                <h:column headerClass="th">
+                                   <f:facet name="header">Time</f:facet>
+                                   #{reserve.time}   
+                                </h:column>  
+                               
+                               <h:column headerClass="th">
+                                   <f:facet name="header">TicketNumber</f:facet>
+                                  #{reserve.ticket_number}   
+                                </h:column> 
+
+
+                                   
+
+                            </h:dataTable>  
+			</div>
+			
+		</div>
+		<!--div class="post">
+			<h2 class="title">Risus Pellentesque Pharetra</h2>
+			
+			<div class="entry">
+				
+				<p>Maecenas pede nisl, elementum eu, ornare ac, malesuada at, erat. Proin gravida orci porttitor enim accumsan lacinia. Donec condimentum, urna non molestie semper, ligula enim ornare nibh, quis laoreet eros quam eget ante.</p>
+			</div>
+			
+		</div> -->
+                
+	</div>
+	<!-- end content -->
+	<!-- start sidebar -->
+	<div id="sidebar">
+		<ul>
+			<li>
+				<h2>Categories</h2>
+				<ul>
+					<li><a href="registration.xhtml">Registration</a></li>
+                                        <li><a href="routeFare.xhtml">Train Routes and Fare</a></li>
+					<li><a href="available.xhtml"> Current Availability</a></li>
+                                                        <li><a href="RailwayInfo.xhtml" accesskey="5" title="">Railway Info</a></li>
+                        <li><a href="ReservedData.xhtml" accesskey="5" title="">Reserved data</a></li>
+					
+				
+					
+				</ul>
+			</li>
+			
+		</ul>
+	</div>
+	<!-- end sidebar -->
+</div>
+<div style="clear: both; height: 30px">&nbsp;</div>
+<!-- end page -->
+<div id="footer">
+	<p>(c) 2016 All Rights Reserved. &nbsp;&bull;&nbsp; Designed by Shaganpreet, Gurpreet</p>
+</div>
+    </h:body>
+</html>
+
+                           
+
+
+
+
+
+                          

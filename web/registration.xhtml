@@ -19,7 +19,7 @@
 		<ul>
 			<li class="active"><a href="index.xhtml" accesskey="1" title="">Home</a></li>
 			<li><a href="login.xhtml" accesskey="2" title="">LogIn</a></li>
-			<li><a href="reservation.xhtml" accesskey="3" title="">Reservation</a></li>
+			
 			<li><a href="AboutUs.xhtml" accesskey="4" title="">About Us</a></li>
 			<li><a href="ContactUs.xhtml" accesskey="5" title="">Contact Us</a></li>
 		</ul>
@@ -34,29 +34,32 @@
 <div style="clear: both; height: 30px">&nbsp;</div>
 <div>
     <h:form id="registration">
-                    <h:panelGrid id="pnl" columns="1">
+                    <h:panelGrid id="pnl" columns="2">
                         <h:outputText value="First name:"/>
-                        <h:inputText value="#{registration.firstname}"/>
+                        <h:inputText  value="#{registration.firstname}" size="30"/>
                         
                         <h:outputText value="Last Name:"/>
-                        <h:inputText value="#{registration.lastname}"/>
+                        <h:inputText value="#{registration.lastname}" size="30"/>
                         
                         <h:outputText value="Email:"/>
-                        <h:inputText value="#{registration.email}"/>
+                        <h:inputText value="#{registration.email}"  size="30"/>
+                        
+                         <h:outputText value="UserName:"/>
+                         <h:inputText value="#{registration.username}" size="30"/>
                         
                         <h:outputText value="Password:"/>
-                        <h:inputText value="#{registration.password}"/>
+                        <h:inputSecret value="#{registration.password}" size="30"/>
                         
                         <h:outputText value="Confirm Password:"/>
-                        <h:inputText value="#{registration.cpassword}"/>
+                        <h:inputSecret value="#{registration.cpassword}" size="30"/>
                         
                         <h:outputText value="Address:"/>
-                        <h:inputText value="#{registration.address}"/>
+                        <h:inputText value="#{registration.address}" size="30"/>
                         
                         
                         
                         <h:outputText value="Phone Number:"/>
-                        <h:inputText value="#{registration.phoneno}"/>
+                        <h:inputText value="#{registration.phoneno}" size="30"/>
                         
                         <h:outputText value=""/>
                         <h:commandButton value="Register" action="#{registration.save()}"/>
@@ -64,6 +67,7 @@
                     </h:panelGrid>
                 </h:form>
 </div>
+
 
 
 

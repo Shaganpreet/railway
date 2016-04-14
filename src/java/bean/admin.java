@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  */
 @ManagedBean
 @ApplicationScoped
-public class Login {
+public class admin {
     String username;
     String password;
 
@@ -38,35 +38,35 @@ public class Login {
         this.password = password;
     }
     
-    public String doLogin() throws SQLException{
+    public String doadmin() throws SQLException{
         
         FacesContext context = FacesContext.getCurrentInstance();
         Connection conn=utils.getConnection();
         Statement st=conn.createStatement();
-        String query = "select password from registration where username='"+username+"';";
+        String query = "select password from admin where username='"+username+"';";
         ResultSet rs=st.executeQuery(query);
         if(rs.next()){
             if(password.equals(rs.getString("password"))){
                 context.getExternalContext().getSessionMap().put("user_session", username);
-                return "loggedin";
+                return "adminloggedin";
             }
             else
             {
                  context.addMessage(null, new FacesMessage("Unknown login, try again using right password  !!!!"));
-                return "login";
+                return "admin";
                
             }
         }
         else{
              context.addMessage(null, new FacesMessage("Unknown login, username not present in the database     !!!!"));
-                return "login";
+                return "admin";
         }
             
     }
     
     public String logout(){
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        return "login";
+        return "admin";
     }
     public void updateUsersFromDB(){
         
